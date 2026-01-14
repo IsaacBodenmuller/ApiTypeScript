@@ -13,7 +13,15 @@ export default defineConfig([
     extends: ["js/recommended"],
     languageOptions: { globals: globals.node },
   },
-  tseslint.configs.recommended,
+  {
+    ...tseslint.configs.recommended,
+    languageOptions: {
+      parserOptions: {
+        project: "./tsconfig.json",
+        tsconfigRootDir: import.meta.dirname,
+      },
+    },
+  },
   {
     files: ["**/*.json"],
     plugins: { json },
@@ -39,6 +47,9 @@ export default defineConfig([
     extends: ["css/recommended"],
   },
   {
-    rules: { semi: ["warn", "always"] },
+    rules: {
+      semi: ["warn", "always"],
+      "@typescript-eslint/no-empty-interface": "off",
+    },
   },
 ]);
