@@ -1,5 +1,5 @@
 import "dotenv/config";
-import "./shared/services/TranslationsYup";
+import "./services/TranslationsYup";
 import express from "express";
 import { router } from "./routes";
 

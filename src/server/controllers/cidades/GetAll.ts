@@ -4,9 +4,9 @@ import { validation } from "../../shared/middleware";
 import { StatusCodes } from "http-status-codes";
 
 export interface IQueryProps {
-  page?: number | undefined;
-  limit?: number | undefined;
-  filter?: string | undefined;
+  page?: number;
+  limit?: number;
+  filter?: string;
 }
 
 export const getAllValidation = validation((getSchema) => ({
@@ -15,13 +15,13 @@ export const getAllValidation = validation((getSchema) => ({
       page: yup.number().optional().moreThan(0),
       limit: yup.number().optional().moreThan(0),
       filter: yup.string().optional(),
-    })
+    }),
   ),
 }));
 
 export const getAll = async (
   req: Request<{}, {}, {}, IQueryProps>,
-  res: Response
+  res: Response,
 ) => {
   return res
     .status(StatusCodes.INTERNAL_SERVER_ERROR)

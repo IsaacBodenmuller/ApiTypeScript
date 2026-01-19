@@ -42,5 +42,12 @@
     "moduleDetection": "force",
     "skipLibCheck": true
   },
-  "exclude": ["eslint.config.mts", "dist"]
+  "exclude": [
+    "./node_modules",
+    "./eslint.config.mts",
+    "./dist",
+    "./jest.config.ts",
+    "./tests",
+    "./build"
+  ]
 }
